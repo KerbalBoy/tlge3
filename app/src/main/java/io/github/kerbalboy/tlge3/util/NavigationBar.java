@@ -31,7 +31,13 @@ public class NavigationBar {
         this.settingsButton = activity.findViewById(R.id.settingsButton);
         this.barView = activity.findViewById(R.id.barView);
 
-        int scaleFactor = 2500 / Resources.getSystem().getDisplayMetrics().widthPixels;
+        int width;
+        int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
+        int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
+
+        width = Math.min(screenHeight, screenWidth);
+
+        int scaleFactor = 2500 / width;
 
         this.configureSize(this.mainButton, scaleFactor);
         this.configureSize(this.upgradeButton, scaleFactor);
